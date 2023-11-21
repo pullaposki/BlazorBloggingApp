@@ -1,0 +1,23 @@
+﻿@page "/"
+
+<BlazorBloggingApp.Components.NewPostSetupComponent OnPostSubmit="@( async (newPost) => await AddPost(newPost))"></BlazorBloggingApp.Components.NewPostSetupComponent>
+
+
+@foreach (var post in _posts)
+{
+	<p>
+	<BlazorBloggingApp.Components.ShowPostComponent Post="@post"></BlazorBloggingApp.Components.ShowPostComponent>
+	</p>
+}
+
+
+@code{
+	List<Models.Post> _posts = new List<Models.Post>();
+
+	Task AddPost(Models.Post newPost)
+	{
+		_posts.Add(newPost);
+
+		return Task.CompletedTask;
+	}
+}

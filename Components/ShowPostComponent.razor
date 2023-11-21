@@ -1,0 +1,11 @@
+﻿@if (Post != null)
+{
+	<h4>@Post.Title</h4>
+	<p>@Post.Body</p>
+	<p>Author: @Post.AuthorName</p>
+}
+
+@code {
+	[Parameter]
+	public Models.Post Post { get; set; }
+}

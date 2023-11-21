@@ -1,0 +1,25 @@
+﻿<h3>New Post</h3>
+<p>Post Title</p>
+<p><input @bind="@_postInstance.Title" /></p>
+<p>Post</p>
+<input @bind = "@_postInstance.Body" />
+<p>Writer</p>
+<input @bind = "@_postInstance.AuthorName" />
+
+<p><button @onclick="@( async () => await HandleSubmit() )">Submit</button></p>
+
+
+
+@code {
+	Models.Post _postInstance = new Models.Post();
+
+	[Parameter]
+	public EventCallback<Models.Post> OnPostSubmit{ get; set; }
+
+	async Task HandleSubmit()
+	{
+		await OnPostSubmit.InvokeAsync(_postInstance);
+
+		_postInstance = new Models.Post();
+	}
+}
