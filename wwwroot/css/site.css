@@ -18,3 +18,34 @@
         background-color: #0e7ac4; /* Darker shade when hovered */
         color: white;
     }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F8FA;
+    color: #14171A;
+}
+
+.header, .footer {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-bottom: 1px solid #e1e8ed; /* for header */
+    border-top: 1px solid #e1e8ed; /* for footer */
+}
+
+.main {
+    width: 500px;
+    margin: 0 auto; /* center the main content */
+    padding: 20px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+p{
+    margin-bottom:0px;
+}
