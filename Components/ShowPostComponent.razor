@@ -1,9 +1,21 @@
 ﻿@if (Post != null)
 {
-	<h4>@Post.Title</h4>
-	<p>@Post.Body</p>
-	<p>Author: @Post.AuthorName</p>
+    <div class="post">
+        <div class="post-header">
+            <!--//<img src="@Post.AuthorProfilePictureUrl" alt="Profile Picture" />-->
+            <h2>@Post.AuthorName</h2>
+        </div>
+        <p>@Post.Body</p>
+        <div class="post-actions">
+            <!--<button @onclick="LikePost">Like</button>-->
+            <!-- Add more buttons for other actions here -->
+        </div>
+    </div>
 }
+
+
+
+
 
 @code {
 	[Parameter]

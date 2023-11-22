@@ -1,0 +1,65 @@
+﻿/* General body styling */
+body {
+    font-family: 'Comic Code', sans-serif;
+    background-color: #F5F8FA;
+    color: #14171A;
+}
+
+/* Post container styling */
+.post {
+    width: 500px;
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+/* Post header styling */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+    .post-header img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .post-header h2 {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0;
+        padding-bottom: 5px; /* Adjust as needed */
+    }
+
+/* Post content styling */
+.post p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #14171A;
+    margin: 10px 0;
+}
+
+/* Post actions styling */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    color: #657786;
+    padding-top: 10px;
+}
+
+    .post-actions button {
+        background: none;
+        border: none;
+        color: #657786;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+
+        .post-actions button:hover {
+            color: #1DA1F2;
+        }

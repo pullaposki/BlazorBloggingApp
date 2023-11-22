@@ -1,10 +1,10 @@
-﻿<h3>New Post</h3>
-<p>Post Title</p>
-<p><input @bind="@_postInstance.Title" /></p>
-<p>Post</p>
-<input @bind = "@_postInstance.Body" />
+﻿<p>Title</p> 
+<input @bind="@_postInstance.Title" />
+<p>Post</p> 
+<textarea @bind="@_postInstance.Body"></textarea>
 <p>Writer</p>
-<input @bind = "@_postInstance.AuthorName" />
+<input @bind="@_postInstance.AuthorName" />
+
 
 <p><button @onclick="@( async () => await HandleSubmit() )">Submit</button></p>
 

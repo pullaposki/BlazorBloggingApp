@@ -1,23 +1,67 @@
 ﻿@page "/"
 
-<BlazorBloggingApp.Components.NewPostSetupComponent OnPostSubmit="@( async (newPost) => await AddPost(newPost))"></BlazorBloggingApp.Components.NewPostSetupComponent>
-
+@if (_showNewPostFields)
+{
+	<BlazorBloggingApp.Components.NewPostSetupComponent OnPostSubmit="@( async (newPost) => await AddPost(newPost))"/>
+}
+else
+{
+	<button @onclick="ShowNewPostFields">New Post</button>
+}
 
 @foreach (var post in _posts)
 {
-	<p>
-	<BlazorBloggingApp.Components.ShowPostComponent Post="@post"></BlazorBloggingApp.Components.ShowPostComponent>
+	<p>	
+		<BlazorBloggingApp.Components.ShowPostComponent Post="post" />
+		<button @onclick="(() => DeletePost(post))">Delete</button>
+		<button @onclick="(() => EditPost(post))">Edit</button>
 	</p>
+	<p> <BlazorBloggingApp.Components.RatingComponent @bind-Value="post.Rating" /> </p>
+}
+
+@if (_selectedPost != null)
+{
+	<EditForm Model="_selectedPost" OnValidSubmit="SavePost">
+		<p>Title</p> <InputText @bind-Value="_selectedPost.Title" />
+		<p>Post</p> <InputTextArea @bind-Value="_selectedPost.Body" />
+		<p>Author</p> <InputText @bind-Value="_selectedPost.AuthorName" />
+		<button type="submit">Save</button>
+	</EditForm>
 }
 
 
 @code{
+	bool _showNewPostFields;
+	int _currentRating;
+
 	List<Models.Post> _posts = new List<Models.Post>();
+	Models.Post _selectedPost;
+
+	void EditPost(Models.Post post)
+	{
+		_selectedPost = post;
+	}
 
 	Task AddPost(Models.Post newPost)
 	{
 		_posts.Add(newPost);
+		_showNewPostFields = false;
 
 		return Task.CompletedTask;
+	}
+
+	void DeletePost(Models.Post post)
+	{
+		_posts.Remove(post);
+	}
+
+	void SavePost()
+	{
+		_selectedPost = null;
+	}
+
+	void ShowNewPostFields()
+	{
+		_showNewPostFields = true;
 	}
 }
